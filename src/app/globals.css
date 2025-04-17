@@ -67,6 +67,7 @@ html{
   top: 0;
   width: 100%;
   height: 7vw;
+  z-index: 1;
   
 
   
@@ -91,7 +92,7 @@ html{
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 0.25vw;
+      gap: 0.75vw;
       img{
         border-radius: 1vw;
         border: 0.25vw solid goldenrod;
@@ -174,7 +175,7 @@ html{
         font-family: "texto.ttf";
         display: flex;
         flex-direction: row;
-        gap: 2.5vw;
+        gap: 2.2vw;
         
         button{
           
@@ -183,7 +184,7 @@ html{
           align-items: center;
           border-radius: 1.2vw;
           height: 4.9vw;
-          width: 17vw;
+          width: 18vw;
           border: 0.2vw solid black;
           font-size: 1.5vw;
           cursor: pointer;
@@ -197,6 +198,14 @@ html{
         button:nth-child(2){
           background-color: black;
          }
+        
+        button:nth-child(1):hover{
+          background-color: rgb(235, 235, 235);
+         }
+
+        button:nth-child(2):hover{
+          background-color: rgb(48, 48, 48);
+         }
 
       }
 
@@ -205,4 +214,84 @@ html{
 
     }
   }
+
+  >section:nth-child(2){
+    background-color: #252525;
+    color:white;
+    width: 100%;
+    position: absolute;
+    top: 28vw;
+    height: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    article{
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5vw;
+      top: 3.5vw;
+
+      >div:nth-child(1){
+        display: flex;
+        flex-direction: column;
+        gap: 1vw;
+        text-align: center;
+        
+        h1{
+          font-family: "titulos.ttf";
+          font-size: 2vw;
+        }
+        
+        p{
+          font-size: 1.5vw;
+          font-family: "texto.ttf";
+        }
+      }
+
+      >div:nth-child(2){
+        width: 80vw;
+        height: 15vw;
+        background-color: red;
+        display: flex;
+        flex-wrap: wrap;
+        
+        justify-content: space-between;
+        
+
+        >div{
+
+          
+          width: 25vw;
+          height: 10vw;
+
+          h1{
+            font-family: "titulos.ttf";
+          }
+
+          p{
+            font-family: "texto.ttf";
+          }
+
+        }
+        
+        @media (max-width: 1024px) { 
+          >div{
+            width: 100% !important;
+            gap: 1vw !important;
+          }
+        }
+        
+
+
+
+      }
+
+    }
+
+
+  }
+
+
 }
