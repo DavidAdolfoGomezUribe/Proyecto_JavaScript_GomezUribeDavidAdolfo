@@ -1,10 +1,208 @@
 @import "tailwindcss";
 
-body{
+/* Reinicio del css*/
+
+*{margin: 0; padding: 0; 
+/*  outline: 1px solid tomato;*/
+}
+*::before, *::after{box-sizing: border-box;}
+body{min-height: 100dvh;}
+input, button, textarea, select{font: inherit;}
+p{text-wrap: pretty;}
+h1, h2, h3, h4, h5, h6{text-wrap: balance;}
+/* img, video, svg{height: auto; max-width: 100%;} */
+@media (prefers-reduced-motion: reduce){
+*, *::before, *::after{
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+max-width: 100%;
+transition-duration: 0.01ms !important;
+scroll-behavior: auto !important;
+transition: none;
+}
+}
+
+@font-face {
+  font-family: "titulos.ttf";
+  src: url("/fonts/titulos.ttf");
+}
+
+@font-face {
+  font-family: "texto.ttf";
+  src: url("/fonts/texto.ttf");
+}
+
+/* body{
   background-color: #252525;
   color: white;
   button{
     @apply bg-blue-500 w-2xs h-20 rounded-2xl
   } 
+} */
     
+
+/* Propiedades generales del documento*/
+/* #  left: 10vw;  */
+/* #  with:80vw    */
+/* #  H1 2.2vw-2vw */ 
+/* #  p 1.2vw   (para titulo)   */ 
+/* #  p 1.5vw   (para texto)   */ 
+
+html{
+  background-color: #252525;
+  color: white;
+  
+}
+
+/* Estilos del header */
+
+.headermaincontainer{
+  font-family: "titulos.ttf";
+  background-color: #111111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 7vw;
+  
+
+  
+  >div{
+
+    
+    position: absolute;
+    left: 10vw;
+    height: 6vw;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    
+    /* Titulo + logo*/
+    >div:nth-child(1){
+      
+      height: 6vw;
+      width: 35vw;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.25vw;
+      img{
+        border-radius: 1vw;
+        border: 0.25vw solid goldenrod;
+        width: 5.7vw;
+        height:5.7vw;
+      }
+      >h1{
+        font-size: 2vw;
+      }
+    }
+
+  /* Opciones de seleccion + toggle dark-light*/
+    >div:nth-child(2){
+      font-size: 1.2vw;
+      text-wrap: nowrap;
+      width: 27vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1vw;
+      
+      >a:hover{
+        border-bottom: 0.35vw solid white ;
+        
+      }
+      
+    }
+    
+  
+  }
+  
+}
+
+/* Estilos del main */
+
+.mainmaincontainer{
+  background-color: white;
+  color: #252525;
+  position: absolute;
+  top: 7vw;
+  width: 100%;
+  height: 50vw;
+  
+  /* Primera seccion */
+  >section:nth-child(1){
+    background-color: whitesmoke;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 28vw;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    >article:nth-child(1){
+      background-color: #252525;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      top: 4vw;
+      left: 10vw;
+      width: 60vw;
+      padding: 1.5vw;
+      gap: 1vw;
+      border-radius: 1.5vw;
+      h1{
+        font-size: 2vw;
+        font-family: "titulos.ttf";
+      }
+
+      p{
+        font-family: "texto.ttf";
+        font-size: 1.5vw;
+      }
+
+      div{
+        font-family: "texto.ttf";
+        display: flex;
+        flex-direction: row;
+        gap: 2.5vw;
+        
+        button{
+          
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 1.2vw;
+          height: 4.9vw;
+          width: 17vw;
+          border: 0.2vw solid black;
+          font-size: 1.5vw;
+          cursor: pointer;
+          
+        }
+
+        button:nth-child(1){
+          background-color: white;
+          color: black;
+        }
+        button:nth-child(2){
+          background-color: black;
+         }
+
+      }
+
+
+      
+
+    }
+  }
 }

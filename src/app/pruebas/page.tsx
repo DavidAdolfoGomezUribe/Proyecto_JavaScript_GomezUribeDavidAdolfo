@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-import {NewDiv ,Button } from "../pruebas"
+import {NewDiv ,Button } from "./pruebas"
 
 
 function Page() {
@@ -18,3 +18,4 @@ function Page() {
 }
 
 export default Page;
+

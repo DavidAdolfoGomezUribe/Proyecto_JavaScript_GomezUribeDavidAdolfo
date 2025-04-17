@@ -7,8 +7,8 @@ import { Dispatch, SetStateAction, useState } from "react"; //asi se importa en 
 
 
 
-
-export function NewDiv() { // esta funcion lo que hace es crear un nuevo elemento div 
+// esta funcion lo que hace es crear un nuevo elemento div cuando el cursor pasa por arriba del contenedor
+export function NewDiv() { 
 
 const [mostrarMensaje, setMostrarMensaje] = useState(false); //useState es un hook(funcion especial) que permite usar carateristicas de react
 //por lo tanto debe primero declararse como esta arriba, useState(false) es el estado inicial
@@ -40,3 +40,24 @@ export function Button({ setCount, count }: ButtonProps) { //parametros de la fu
     </button>
   );
 }
+
+
+// /my-next-app
+//   ├─ /app                # Carpeta principal de Next.js 13+ (App Router)
+//   │   ├─ /home           # Página de inicio
+//   │   │   └─ page.tsx    # Componente de la página dðe inicio
+//   │   ├─ /pruebas        # Otra página de ejemplo
+//   │   │   └─ page.tsx
+//   │   └─ layout.tsx      # Layout global
+//   ├─ /components         # Componentes reutilizables
+//   │   ├─ Header.tsx      # Componente de Header
+//   │   ├─ Footer.tsx      # Componente de Footer
+//   │   ├─ Main.tsx        # Componente de Main
+//   │   └─ Button.tsx      # Otro componente, ejemplo
+//   ├─ /public             # Archivos estáticos (imágenes, favicon, etc.)
+//   │   └─ fonts           # Fuentes
+//   ├─ /styles             # Archivos de CSS o Tailwind
+//   ├─ /types              # Archivos de tipos TypeScript
+//   ├─ /node_modules       # Dependencias
+//   ├─ tsconfig.json       # Configuración de TypeScript
+//   └─ package.json        # Configuración del proyecto

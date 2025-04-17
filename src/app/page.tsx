@@ -1,6 +1,10 @@
 "use client"
 
-import Link from "next/link";
+// import Link from "next/link";  //para revisar pruebas, descomentar o http://localhost:3000/pruebas
+import React from "react";
+import { HeaderMain } from "./components/headermain";
+import { MainMain } from "./components/mainmain";
+
 
 
 
@@ -8,7 +12,20 @@ import Link from "next/link";
 function Page() {
 
   return (
-    <Link href={"/pruebas"}>oe </Link>
+    
+    //headermain
+    <React.Fragment> 
+      {/* <Link  href={"/pruebas"}>enlace para entrar en pruebas  </Link>  */}
+      
+      <HeaderMain /> 
+      
+      {/* //mainmain */}
+      
+      <MainMain />
+      
+      {/* //footer */}
+    </React.Fragment>
+
   );
 }
 
