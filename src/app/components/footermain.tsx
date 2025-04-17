@@ -2,8 +2,8 @@
 
 export function FooterMain (){
     return(
-        <div>
+        <footer className="footermaincontainer">
             hola a todos
-        </div>
+        </footer>
     )
 }

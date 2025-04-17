@@ -15,7 +15,7 @@ export function HeaderMain(){
 
                 <div>
                     
-                    <Link href={"/vacio"}>Create Character</Link>
+                    <Link className="null" href={"/vacio"}>Create Character</Link>
                     <Link href={"/vacio"}>My Characters</Link>
 
                     <Image alt="dark-light" src={"/example.jpg"}  width={100} height={100}></Image> 

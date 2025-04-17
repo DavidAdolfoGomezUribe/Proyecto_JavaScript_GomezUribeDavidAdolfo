@@ -47,7 +47,9 @@ transition: none;
 /* #  H1 2.2vw-2vw */ 
 /* #  p 1.2vw   (para titulo)   */ 
 /* #  p 1.5vw   (para texto)   */ 
-
+/* #  Nota importante: meter los @media al final para que
+      se apliquen correctamente */ 
+/* #                                    */      
 html{
   background-color: #252525;
   color: white;
@@ -130,7 +132,7 @@ html{
 /* Estilos del main */
 
 .mainmaincontainer{
-  background-color: white;
+  
   color: #252525;
   position: absolute;
   top: 7vw;
@@ -226,7 +228,7 @@ html{
     flex-direction: column;
     align-items: center;
 
-    article{
+    >article{
       position: absolute;
       display: flex;
       flex-direction: column;
@@ -309,6 +311,31 @@ html{
 
 
   }
+  
+
+}
+
+@media (max-width: 1024px){
+  .mainmaincontainer{
+    height: 140vw;
+  }
+}
+
+/* seccion del footer*/
+.footermaincontainer{
+  position: absolute;
+  top:77vw;
+  background-color: red;
+  width: 100%;
+  height: 20vw;
+  
+
+}
 
 
+@media (max-width: 1024px){
+  .footermaincontainer{
+      
+    top:130vw;    
+  }
 }

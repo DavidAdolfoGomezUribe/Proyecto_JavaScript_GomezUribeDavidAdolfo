@@ -4,7 +4,7 @@
 import React from "react";
 import { HeaderMain } from "./components/headermain";
 import { MainMain } from "./components/mainmain";
-
+import { FooterMain } from "./components/footermain";
 
 
 
@@ -24,6 +24,9 @@ function Page() {
       <MainMain />
       
       {/* //footer */}
+
+      <FooterMain />
+    
     </React.Fragment>
 
   );
