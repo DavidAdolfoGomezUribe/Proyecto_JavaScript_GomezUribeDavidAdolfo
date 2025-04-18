@@ -50,7 +50,7 @@ function a11yProps(index: number) {
   };
 }
 
-export function FullWidthTabs() {
+function FullWidthTabs() {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
@@ -81,6 +81,7 @@ export function FullWidthTabs() {
         </AppBar>
         
         <TabPanel value={value} index={0} dir={theme.direction}>
+    
           <div className="racecreatecontainer">
             <div>
               <h1>Choose Your Race</h1>
@@ -100,7 +101,7 @@ export function FullWidthTabs() {
               <MultipleSelectPlaceholder />
             </div>
             <div>
-              
+
               <h2>Select a Race</h2>
 
               <RaceList />
