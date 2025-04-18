@@ -10,6 +10,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import MultipleSelectPlaceholder from "./genderselector";
+import { RaceList } from "./racelist";
+
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -57,25 +60,57 @@ export function FullWidthTabs() {
 
   return (
     <React.Fragment> 
-      <Box style={{ background: "#111111",width:"100%" }} >
-        <AppBar position="static" style={{background:"black"}}>
+      <Box style={{ background: "#111111",width:"100%",borderRadius:"1vw" }} >
+        <AppBar position="static" style={{background:"black",borderRadius:"1vw"}}>
           <Tabs
+            
             value={value}
             onChange={handleChange}
             indicatorColor="secondary"
             textColor="inherit"
             variant="fullWidth"
             aria-label="full width tabs example"
+            
           >
-            <Tab label="Race" {...a11yProps(0)} />
+            <Tab  label="Race" {...a11yProps(0)} />
             <Tab label="Class" {...a11yProps(1)} />
             <Tab label="Equipment" {...a11yProps(2)} />
             <Tab label="Stats" {...a11yProps(3)} />
             <Tab label="Review" {...a11yProps(4)} />
           </Tabs>
         </AppBar>
+        
         <TabPanel value={value} index={0} dir={theme.direction}>
-          Item One
+          <div className="racecreatecontainer">
+            <div>
+              <h1>Choose Your Race</h1>
+
+              <p>Select a race for your character. Each race provides unique abilities and traits.</p>
+          
+            </div>
+            
+            <div>
+              <h2>Character Name</h2>
+
+              <input type="text" />
+            </div>
+            <div>
+              <h2>Gender Name</h2>
+
+              <MultipleSelectPlaceholder />
+            </div>
+            <div>
+              
+              <h2>Select a Race</h2>
+
+              <RaceList />
+              
+            </div>
+          
+          </div>
+
+
+
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
           Item Two

@@ -423,3 +423,102 @@ html{
   }
   
 }
+
+/* panel de la opcion Race*/
+.MuiAppBar-root .MuiTab-root {
+  font-family: 'titulos.ttf', sans-serif !important;
+  font-size: 2vw;
+}
+
+
+.racecreatecontainer{
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  border: 0.25vw solid whitesmoke;
+  border-radius: 1vw;
+  >div:nth-child(1){
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    
+    >h1{
+      font-size: 2vw;
+      font-family: "titulos.ttf";
+    }
+    >p{
+      font-family: "texto.ttf";
+      font-size: 2vw;    }
+  }
+
+  >div:nth-child(2){
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    h2{
+      font-family: "titulos.ttf";
+      font-size: 2vw;
+    }
+
+    input{
+      outline: 0.25vw solid whitesmoke;
+      border-radius: 0.75vw;
+      padding-left: 2vw;
+      font-family: "texto.ttf";
+      font-size: 2vw;
+      height: 3.5vw;
+      
+    }
+  }
+
+  >div:nth-child(3){
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    h2{
+      font-family: "titulos.ttf";
+      font-size: 2vw;
+    }
+    >div{
+      div{
+        width: 100% ;
+        margin-left: -1px;
+        color: whitesmoke;
+        font-family: "texto.ttf", sans-serif !important;
+        
+      }
+    }
+  }
+  
+
+
+}
+
+/* borde de linea del genderselectorcontainer */
+.MuiOutlinedInput-root {
+  border-radius: 0.75vw !important;
+  outline: 0.25vw solid whitesmoke !important;
+  border: none !important; 
+  height: 3.5vw !important;
+  font-size: 2vw !important;
+  font-family: "texto.ttf", sans-serif !important;
+  }
+
+/*menu interno del genderselectorcontainer */
+.MuiList-root{
+  color: whitesmoke;
+  background: #252525 !important;
+  font-family: "texto.ttf", sans-serif !important;
+}
+.MuiButtonBase-root{
+  font-family: "texto.ttf", sans-serif !important;
+  background: #252525 !important;
+  &:hover{
+    background-color: rgb(80, 80, 80) !important;
+  }
+}
+
+

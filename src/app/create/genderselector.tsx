@@ -1,0 +1,66 @@
+import * as React from 'react';
+
+import OutlinedInput from '@mui/material/OutlinedInput';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
+const names = [
+  "Male", "Female", "Apache Helicopter"
+];
+
+
+
+export default function SingleSelect() {
+  
+  const [selectedName, setSelectedName] = React.useState<string>(''); 
+
+  const handleChange = (event: SelectChangeEvent<string>) => { 
+    setSelectedName(event.target.value);
+  };
+
+  return (
+    <div>
+      <FormControl sx={{ m: 1, width: 300, mt: 3}}>
+        <Select
+          displayEmpty
+          value={selectedName}
+          onChange={handleChange}
+          input={<OutlinedInput />}
+          renderValue={(selected) => {
+            if (!selected) {
+              return <em>Gender</em>;
+            }
+            return selected;
+          }}
+          MenuProps={MenuProps}
+          inputProps={{ 'aria-label': 'Without label' }}
+        >
+          <MenuItem disabled value="">
+            <em>Gender</em>
+          </MenuItem>
+          {names.map((name) => (
+            <MenuItem
+              key={name}
+              value={name}
+              >
+              {name}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </div>
+  );
+}
