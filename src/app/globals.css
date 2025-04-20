@@ -513,7 +513,7 @@ html{
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 1vw;
+      gap: 2vw;
       >div{
         border-radius: 1vw;
         border: 0.25vw solid whitesmoke;
@@ -521,7 +521,7 @@ html{
         display: flex;
         flex-direction: row;
         font-family: "texto.ttf";
-        width: 49%;
+        width: 48%;
         font-size: 2vw;
         >div{
           display: flex;
@@ -529,10 +529,26 @@ html{
           border: none;
           justify-content: flex-start;
           width: 100%;
+          
           h2{
+            width: 100%;
             font-family: "titulos.ttf";
             font-size: 2vw;
           }
+          img{
+            border: solid 0.25vw whitesmoke;
+            border-radius: 1vw;
+            margin-top: 1vw;
+            margin-left: 33%;
+            padding: 1vw;
+            position: sticky;
+            left: 0vw;
+            width: 12vw;
+            height: auto;
+            
+            z-index: 1;
+          }
+
         }
         
         

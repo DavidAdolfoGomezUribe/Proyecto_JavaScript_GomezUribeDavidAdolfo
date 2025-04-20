@@ -1,27 +1,30 @@
 "use client"
-
 import React from "react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
 interface Race {
   name: string;
-  alignment: string;  // Nueva propiedad
-  url: string;        // Para hacer fetch de cada raza individual
+  alignment: string;
+  url: string;
 }
+
+// Lista de imágenes disponibles
+const ListaImagenes: string[] = [ 
+  "Dragonborn.png", "Dwarf.png", "Elf.png", "Gnome.png", 
+  "Half-Elf.png", "Halfling.png", "Human.png", "Tiefling.png"
+];
 
 export function RaceList() {
   const [races, setRaces] = useState<Race[]>([]);
-  const [mostrarImagen, setMostrarImagen] = useState(false); //useState es un hook(funcion especial) que permite usar carateristicas de react
-  
+  const [hoveredRace, setHoveredRace] = useState<string | null>(null);
+
   useEffect(() => {
     const fetchRacesData = async () => {
       try {
-        // Primero obtenemos la lista de razas
         const listResponse = await fetch("https://www.dnd5eapi.co/api/races");
         const raceList = await listResponse.json();
         
-        // Hacemos fetch de los detalles de cada raza individualmente
         const racesWithDetails = await Promise.all(
           raceList.results.map(async (race: { url: string }) => {
             const detailResponse = await fetch(`https://www.dnd5eapi.co${race.url}`);
@@ -43,18 +46,40 @@ export function RaceList() {
     fetchRacesData();
   }, []);
 
+  // Función para obtener la imagen correcta
+  const getRaceImage = (raceName: string) => {
+    const formattedName = `${raceName.replace(/\s+/g, '-')}.png`;
+    return ListaImagenes.includes(formattedName) 
+      ? `/img/${formattedName}`
+      : '/img/Dragonborn.png';
+  };
+
   return (
     <div>
       {races.map((race: Race) => (
-        <div key={race.url} className="race-card">
-       
+        <div 
+        onMouseOver={() => setHoveredRace(race.url)}
+        onMouseOut={() => setHoveredRace(null)}
+        key={race.url} className="race-card">
           <div className="race-info">
             <h2 
-                onMouseOver={() => setMostrarImagen(true)}//cuando el mause esta sobre el elemento 
-                onMouseOut={() => setMostrarImagen(false)}//cuando el mause esta afuera del elemento
-             >{race.name}</h2>
-             {mostrarImagen && <Image alt="logo" src={"/img/dragonemblem.png"} width={25} height={25}/>}
-            <p className="alignment"><strong>Description: </strong>  {race.alignment}</p>
+             
+            >
+              {race.name}
+              {hoveredRace === race.url && (
+                <Image 
+                  alt={race.name}
+                  src={getRaceImage(race.name)}
+                  width={500} 
+                  height={500}
+                  onError={(e) => {
+                    // Fallback por si hay error de carga
+                    (e.target as HTMLImageElement).src = '/img/Dragonborn.png';
+                  }}
+                />
+              )}
+            </h2>
+            <p className="alignment"><strong>Description: </strong>{race.alignment}</p>
           </div>
         </div>
       ))}

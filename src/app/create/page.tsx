@@ -97,7 +97,7 @@ function FullWidthTabs() {
             </div>
 
             <div>
-              <h2>Gender Name</h2>
+              <h2>Gender</h2>
 
               <MultipleSelectPlaceholder />
             </div>
