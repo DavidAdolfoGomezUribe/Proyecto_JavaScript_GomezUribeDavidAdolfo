@@ -241,6 +241,7 @@ html{
       top: 3.5vw;
 
       >div:nth-child(1){
+        
         display: flex;
         flex-direction: column;
         gap: 1vw;
@@ -270,6 +271,7 @@ html{
         
         
         >div{
+
           border-radius: 1vw;
           display: flex;
           flex-direction: column;
@@ -289,6 +291,13 @@ html{
             font-size: 1.5vw;
           }
 
+        }
+
+        >div:nth-child(1){
+          background: url("/img/choseyourrace.png");
+          background-size: cover;
+          background-position: center;
+          
         }
         
       }
@@ -440,6 +449,8 @@ html{
 
   /*choose your race*/
   >div:nth-child(1){
+    
+    
     padding: 1vw;
     display: flex;
     flex-direction: column;
