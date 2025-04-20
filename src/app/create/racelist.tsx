@@ -3,6 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
+
 interface Race {
   name: string;
   alignment: string;
@@ -12,12 +13,20 @@ interface Race {
 // Lista de imágenes disponibles
 const ListaImagenes: string[] = [ 
   "Dragonborn.png", "Dwarf.png", "Elf.png", "Gnome.png", 
-  "Half-Elf.png", "Halfling.png", "Human.png", "Tiefling.png"
+  "Half-Elf.png","Half-Orc.png", "Halfling.png", "Human.png", "Tiefling.png"
 ];
 
-export function RaceList() {
+interface SingleRaceProps {
+  onRaceChange: (race: string) => void;
+  selectedRace?: string; // Opcional si quieres controlarlo desde el padre
+}
+
+
+export function RaceList({onRaceChange,selectedRace = ""}:SingleRaceProps ) {
+
   const [races, setRaces] = useState<Race[]>([]);
   const [hoveredRace, setHoveredRace] = useState<string | null>(null);
+  const [selectedRaceLocal, setSelectedRaceLocal] = useState<string>(selectedRace);
 
   useEffect(() => {
     const fetchRacesData = async () => {
@@ -46,6 +55,11 @@ export function RaceList() {
     fetchRacesData();
   }, []);
 
+  const handleRaceSelect = (raceName: string) => {
+    setSelectedRaceLocal(raceName);
+    onRaceChange(raceName); // Notifica al padre
+  };
+
   // Función para obtener la imagen correcta
   const getRaceImage = (raceName: string) => {
     const formattedName = `${raceName.replace(/\s+/g, '-')}.png`;
@@ -58,9 +72,13 @@ export function RaceList() {
     <div>
       {races.map((race: Race) => (
         <div 
+        
+        key={race.url} 
+        onClick={() => handleRaceSelect(race.name)}
+        className={`race-card ${selectedRaceLocal === race.name ? 'selected' : ''}`}
         onMouseOver={() => setHoveredRace(race.url)}
         onMouseOut={() => setHoveredRace(null)}
-        key={race.url} className="race-card">
+        >
           <div className="race-info">
             <h2 
              

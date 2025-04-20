@@ -5,17 +5,20 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-
+interface SingleSelectProps {
+  onGenderChange: (gender: string) => void;
+  selectedGender?: string; // Opcional si quieres controlarlo desde el padre
+}
 
 const names = [
   "Male", "Female", "Apache Helicopter"
 ];
 
-export default function SingleSelect() {
-
-  const [selectedName, setSelectedName] = React.useState<string>(''); 
-  const handleChange = (event: SelectChangeEvent<string>) => { 
-    setSelectedName(event.target.value);
+export default function SingleSelect({ onGenderChange, selectedGender = '' }: SingleSelectProps) {
+  
+  const handleChange = (event: SelectChangeEvent<string>) => {
+    const value = event.target.value;
+    onGenderChange(value); // Notifica al padre
   };
 
   return (
@@ -23,7 +26,7 @@ export default function SingleSelect() {
       <FormControl sx={{ m: 1, width: 300, mt: 3}}>
         <Select
           displayEmpty
-          value={selectedName}
+          value={selectedGender}
           onChange={handleChange}
           input={<OutlinedInput />}
           renderValue={(selected) => {

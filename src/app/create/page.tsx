@@ -10,8 +10,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import MultipleSelectPlaceholder from "./genderselector";
+import SingleSelect from "./genderselector";
 import { RaceList } from "./racelist";
+import { useState } from "react";
 
 
 interface TabPanelProps {
@@ -56,7 +57,29 @@ function FullWidthTabs() {
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
+
   };
+
+const [characterName, setCharacterName] = useState<string>('');
+const [selectedGender, setSelectedGender] = React.useState<string>('');
+const [selectedRace, setSelectedRace] = useState<string>('');
+
+const handleNext = () => {
+
+  localStorage.setItem('characterData', JSON.stringify({
+    name: characterName,
+    gender: selectedGender,
+    race: selectedRace
+  }));
+
+  if (value < 4) { // 4 es el índice máximo (por las 5 pestañas)
+    setValue(prev => prev + 1);
+  }
+
+
+}
+
+
 
   return (
     <React.Fragment> 
@@ -93,25 +116,34 @@ function FullWidthTabs() {
             <div>
               <h2>Character Name</h2>
 
-              <input type="text" />
+              <input 
+              type="text" 
+              value={characterName}
+              onChange={(e) => setCharacterName(e.target.value)}
+               />
             </div>
 
             <div>
               <h2>Gender</h2>
 
-              <MultipleSelectPlaceholder />
+              <SingleSelect  
+                onGenderChange={setSelectedGender} 
+                selectedGender={selectedGender} />
             </div>
 
             <div>
 
               <h2>Select a Race</h2>
 
-              
-              <RaceList />
-              
+              <RaceList 
+               onRaceChange={setSelectedRace}
+               selectedRace={selectedRace}
+               />
               
             </div>
-          
+
+            <button onClick={handleNext}>Next</button>
+
           </div>
 
 
