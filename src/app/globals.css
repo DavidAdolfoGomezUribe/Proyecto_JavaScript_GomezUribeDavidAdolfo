@@ -437,6 +437,8 @@ html{
   gap: 1vw;
   border: 0.25vw solid whitesmoke;
   border-radius: 1vw;
+
+  /*choose your race*/
   >div:nth-child(1){
     padding: 1vw;
     display: flex;
@@ -451,7 +453,7 @@ html{
       font-family: "texto.ttf";
       font-size: 2vw;    }
   }
-
+  /* character name */
   >div:nth-child(2){
     padding: 1vw;
     display: flex;
@@ -472,7 +474,7 @@ html{
       
     }
   }
-
+  /* gender name */
   >div:nth-child(3){
     padding: 1vw;
     display: flex;
@@ -485,7 +487,8 @@ html{
     >div{
       div{
         width: 100% ;
-        margin-left: -1px;
+        margin-left: 0px;
+        margin-top: 0px;
         color: whitesmoke;
         font-family: "texto.ttf", sans-serif !important;
         
@@ -493,7 +496,52 @@ html{
     }
   }
   
+  >div:nth-child(4){
+    
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    width: 100%;
+    >h2{
+      font-family: "titulos.ttf";
+      font-size: 2vw;
+    }
+    div{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1vw;
+      >div{
+        border-radius: 1vw;
+        border: 0.25vw solid whitesmoke;
+        padding: 1vw;
+        display: flex;
+        flex-direction: row;
+        font-family: "texto.ttf";
+        width: 49%;
+        font-size: 2vw;
+        >div{
+          display: flex;
+          flex-direction: column;
+          border: none;
+          justify-content: flex-start;
+          width: 100%;
+          h2{
+            font-family: "titulos.ttf";
+            font-size: 2vw;
+          }
+        }
+        
+        
 
+
+      }
+
+    }
+  }
 
 }
 

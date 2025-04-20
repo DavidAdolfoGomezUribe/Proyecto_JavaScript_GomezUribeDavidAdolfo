@@ -95,16 +95,20 @@ function FullWidthTabs() {
 
               <input type="text" />
             </div>
+
             <div>
               <h2>Gender Name</h2>
 
               <MultipleSelectPlaceholder />
             </div>
+
             <div>
 
               <h2>Select a Race</h2>
 
+              
               <RaceList />
+              
               
             </div>
           

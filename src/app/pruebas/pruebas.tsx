@@ -138,6 +138,23 @@ export function FullWidthTabs() {
   );
 }
 
+// array.map((elemento, índice, arrayOriginal) => { ... })
+const MapElements = ["arroz", "papa","yuca"]
+
+export function HowToMap (){
+  return ( 
+
+    <React.Fragment>
+      <h1>hola</h1>
+      {MapElements.map((elements , index) => (
+        <div key={index}>{elements}</div>
+      )
+      )}
+
+    </React.Fragment>
+ 
+  )
+}
 
 
 // /my-next-app

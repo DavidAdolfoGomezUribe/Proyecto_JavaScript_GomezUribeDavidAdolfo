@@ -6,6 +6,8 @@ import {NewDiv ,Button } from "./pruebas"
 
 import { FullWidthTabs } from "./pruebas";
 
+import { HowToMap } from "./pruebas";
+
 
 function Page() {
   const [count, setCount] = useState(0);
@@ -16,6 +18,7 @@ function Page() {
       <Button setCount={setCount} count={count} />
       <NewDiv />
       <FullWidthTabs />
+      <HowToMap />
     </div>
   );
 }
