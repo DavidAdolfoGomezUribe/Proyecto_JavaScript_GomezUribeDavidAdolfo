@@ -63,15 +63,17 @@ function FullWidthTabs() {
 const [characterName, setCharacterName] = useState<string>('');
 const [selectedGender, setSelectedGender] = React.useState<string>('');
 const [selectedRace, setSelectedRace] = useState<string>('');
-// const [selectedClass, setSelectedClass] = useState<string>('');
+const [selectedClass, setSelectedClass] = useState<string>('');
 
+
+// funcion pa guadar en el localStorage
 const handleNext = () => {
 
   localStorage.setItem('characterData', JSON.stringify({
     name: characterName,
     gender: selectedGender,
     race: selectedRace,
-    // class: selectedClass
+    class: selectedClass
   }));
 
   if (value < 4) { // 4 es el índice máximo (por las 5 pestañas)
@@ -159,8 +161,11 @@ const handleNext = () => {
               </div>
                 
               <div>
-                <SelectClass />
+                <SelectClass
+                  onSelectClassChange={setSelectedClass}/>
               </div>
+
+              <button onClick={handleNext}>Next</button>
           </div>
 
         </TabPanel>
