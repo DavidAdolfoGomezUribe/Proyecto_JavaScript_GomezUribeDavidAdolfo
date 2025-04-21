@@ -439,7 +439,7 @@ html{
   font-size: 2vw;
 }
 
-
+/* estilos de las targetas del contenedor  raza */
 .racecreatecontainer{
   display: flex;
   flex-direction: column;
@@ -507,6 +507,7 @@ html{
     }
   }
   
+  /* Select a Race*/
   >div:nth-child(4){
     
     padding: 1vw;
@@ -571,6 +572,7 @@ html{
     }
   }
 
+  /*boton next */ 
   >button:nth-child(5){
     width: 100%;
     border-bottom-right-radius: 1vw;
@@ -596,16 +598,15 @@ html{
   cursor: pointer;
   transition: all 0.25s ease;
 }
-
-
 .race-card.selected {
   
   background-color: rgba(0, 136, 5, 0.719);
 }
-
 .race-card:hover {
   box-shadow: 0px 0px 10px 7px rgba(0,255,60,1);
 }
+
+
 
 /* borde de linea del genderselectorcontainer */
 .MuiOutlinedInput-root {
@@ -632,3 +633,29 @@ html{
 }
 
 
+.classcreatecontainer{
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  border: 0.25vw solid whitesmoke;
+  border-radius: 1vw;
+
+   /*choose your race*/
+   >div:nth-child(1){
+    
+    
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    
+    >h1{
+      font-size: 2vw;
+      font-family: "titulos.ttf";
+    }
+    >p{
+      font-family: "texto.ttf";
+      font-size: 2vw;
+      }
+  }
+}

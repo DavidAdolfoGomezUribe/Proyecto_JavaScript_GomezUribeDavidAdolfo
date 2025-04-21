@@ -80,9 +80,7 @@ export function RaceList({onRaceChange,selectedRace = ""}:SingleRaceProps ) {
         onMouseOut={() => setHoveredRace(null)}
         >
           <div className="race-info">
-            <h2 
-             
-            >
+            <h2>
               {race.name}
               {hoveredRace === race.url && (
                 <Image 

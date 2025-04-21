@@ -8,6 +8,8 @@ import { FullWidthTabs } from "./pruebas";
 
 import { HowToMap } from "./pruebas";
 
+import { SelectClass } from "./pruebas";
+
 import React from "react";
 
 
@@ -34,6 +36,7 @@ function Page() {
       <NewDiv />
       <FullWidthTabs />
       <HowToMap />
+      <SelectClass />
 
     </React.Fragment>
   );

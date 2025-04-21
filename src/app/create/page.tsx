@@ -13,7 +13,7 @@ import Box from '@mui/material/Box';
 import SingleSelect from "./genderselector";
 import { RaceList } from "./racelist";
 import { useState } from "react";
-
+import { SelectClass } from "./selectclass";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -63,13 +63,15 @@ function FullWidthTabs() {
 const [characterName, setCharacterName] = useState<string>('');
 const [selectedGender, setSelectedGender] = React.useState<string>('');
 const [selectedRace, setSelectedRace] = useState<string>('');
+// const [selectedClass, setSelectedClass] = useState<string>('');
 
 const handleNext = () => {
 
   localStorage.setItem('characterData', JSON.stringify({
     name: characterName,
     gender: selectedGender,
-    race: selectedRace
+    race: selectedRace,
+    // class: selectedClass
   }));
 
   if (value < 4) { // 4 es el índice máximo (por las 5 pestañas)
@@ -136,9 +138,9 @@ const handleNext = () => {
               <h2>Select a Race</h2>
 
               <RaceList 
-               onRaceChange={setSelectedRace}
-               selectedRace={selectedRace}
-               />
+                onRaceChange={setSelectedRace}
+                selectedRace={selectedRace}
+                />
               
             </div>
 
@@ -150,7 +152,17 @@ const handleNext = () => {
 
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Item Two
+          <div className="classcreatecontainer">
+              <div>
+                <h1>Choose Your Class</h1>
+                <p>Select a class for your character. Your class determines your abilities and playstyle.</p>
+              </div>
+                
+              <div>
+                <SelectClass />
+              </div>
+          </div>
+
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
           Item Three
@@ -177,7 +189,7 @@ function Page() {
     
     //headermain
     <React.Fragment> 
-      <body className="createbodycontainer">
+      <div className="createbodycontainer">
         <main className="createmaincontainer">
           <section>
             <Link  href={"../"}>
@@ -192,7 +204,7 @@ function Page() {
 
 
         </main>
-      </body>
+      </div>
     </React.Fragment>
 
   );

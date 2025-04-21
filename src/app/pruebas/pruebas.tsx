@@ -3,7 +3,7 @@
 
 
 "use client"; //esto es para decirle a next.js que redenderice esto del lado del cliente, es necesario para los componentes de react
-import { Dispatch, SetStateAction, useState } from "react"; //asi se importa en ts
+import { Dispatch, SetStateAction, useState,useEffect } from "react"; //asi se importa en ts
 
 
 
@@ -154,6 +154,50 @@ export function HowToMap (){
     </React.Fragment>
  
   )
+}
+
+
+// how to fetch con useEffect
+
+export function SelectClass() {
+
+    const [classList, setClassList] = useState<{ name: string }[]>([])
+    
+    useEffect (()=>{
+    
+        const fetchClassData = async()=>{
+            try{
+                const listResponse = await fetch("https://www.dnd5eapi.co/api/classes");
+                const data = await listResponse.json();
+                setClassList(data.results as { name: string }[])
+                const ej = []
+                for (let i = 0; i < 12; i++) {
+
+                    
+                    ej.push(data.results[i].name)
+                }   
+                console.log(ej);
+                
+
+            }catch{
+
+            }
+
+        }
+
+        fetchClassData();
+    },[])
+    
+    
+  return (
+    <React.Fragment>
+        {classList.map((value,index)=>( 
+            <div key={index}>{value.name}</div>
+        ))
+        }
+    </React.Fragment>
+
+    );
 }
 
 
