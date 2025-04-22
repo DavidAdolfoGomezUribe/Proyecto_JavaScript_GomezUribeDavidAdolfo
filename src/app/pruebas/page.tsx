@@ -10,6 +10,8 @@ import { HowToMap } from "./pruebas";
 
 import { SelectClass } from "./pruebas";
 
+import StatsSlider from "./pruebas";
+
 import React from "react";
 
 
@@ -37,6 +39,10 @@ function Page() {
       <FullWidthTabs />
       <HowToMap />
       <SelectClass />
+      <StatsSlider 
+        onStrengthChange={(value: number) => console.log("Strength changed:", value)} 
+        onDexterityChange={(value: number) => console.log("Dexterity changed:", value)} 
+      />
 
     </React.Fragment>
   );

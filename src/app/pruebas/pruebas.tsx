@@ -201,6 +201,71 @@ export function SelectClass() {
 }
 
 
+/* How to slider, evitar estructura repetitiva*/
+
+import Slider from '@mui/material/Slider';
+
+interface Props {
+    onStrengthChange: (value: number) => void;
+    onDexterityChange: (value: number) => void;
+  }
+
+
+export default function StatsSlider({ onStrengthChange, onDexterityChange }: Props) {
+  
+  const [strength, setStrength] = useState<number>(8);
+  const [dexterity,setDexterity] = useState<number>(8);
+
+  const handleStrengthChange = (event: Event, newValue: number | number[]) => {
+    const value = newValue as number;
+    setStrength(value);
+    onStrengthChange(value); 
+  };
+
+  const handleDexterityChange = (event: Event, newValue: number | number[]) => {
+    const value = newValue as number;
+    setDexterity(value);
+    onDexterityChange(value);
+  };
+
+  return (
+    <Box sx={{ width: "100%" }}>
+      
+    <div>
+      <h1>Strength: {strength}</h1> {/* Muestra el valor actual */}
+      <Slider
+        value={strength} // Usa el valor del estado
+        onChange={handleStrengthChange} // Conecta el manejador
+        valueLabelDisplay="auto"
+        step={1}
+        marks
+        min={1}
+        max={20}
+        />
+    </div>
+    
+    <div>
+      <h1>dexterity: {dexterity}</h1> {/* Muestra el valor actual */}
+      <Slider
+        value={dexterity} // Usa el valor del estado
+        onChange={handleDexterityChange} // Conecta el manejador
+        valueLabelDisplay="auto"
+        step={1}
+        marks
+        min={1}
+        max={20}
+        />
+    </div>
+    
+    
+    
+    </Box>
+
+
+  );
+}
+
+
 // /my-next-app
 //   ├─ /app                # Carpeta principal de Next.js 13+ (App Router)
 //   │   ├─ /home           # Página de inicio

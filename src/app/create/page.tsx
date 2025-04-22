@@ -16,6 +16,7 @@ import { useState } from "react";
 import { SelectClass } from "./selectclass";
 import SingleSelectArmor from "./armor";
 import SingleSelectWeapon from "./weapon";
+import StatsSlider from "./stats";
 
 
 interface TabPanelProps {
@@ -69,6 +70,23 @@ const [selectedRace, setSelectedRace] = useState<string>('');
 const [selectedClass, setSelectedClass] = useState<string>('');
 const [selectedArmor, setSelectedArmor] = useState<string>('');
 const [selectedWeapon,setSelectedWeapon] =useState<string>('');
+
+interface Stats {
+  strength: number;
+  dexterity: number;
+  intelligence: number;
+  charisma: number;
+}
+
+const INITIAL_STATS: Stats = {
+  strength: 8,
+  dexterity: 8,
+  intelligence: 8,
+  charisma: 8,
+};
+
+const [characterStats, setCharacterStats] = useState<Stats>(INITIAL_STATS);
+
 // funcion pa guadar en el localStorage
 const handleNext = () => {
 
@@ -78,7 +96,9 @@ const handleNext = () => {
     race: selectedRace,
     class: selectedClass,
     armor: selectedArmor,
-    weapon:selectedWeapon
+    weapon:selectedWeapon,
+    ...characterStats,
+
   }));
 
   if (value < 4) { // 4 es el índice máximo (por las 5 pestañas)
@@ -181,8 +201,8 @@ const handleNext = () => {
           <div className="equipementcreatecontainer">
               
               <div>
-                <h1>Choose Your Class</h1>
-                <p>Select a class for your character. Your class determines your abilities and playstyle.</p>
+                <h1>Choose Your Equipment</h1>
+                <p>Select armor and weapons for your character.</p>
               </div>
                 
 
@@ -200,9 +220,6 @@ const handleNext = () => {
                   onWeaponChange={setSelectedWeapon}
                   selectedWeapon={selectedWeapon}
                   />
-          
-
-
               </div>
 
             <button onClick={handleNext}>Next</button>
@@ -210,11 +227,30 @@ const handleNext = () => {
 
         </TabPanel>
         
+
         <TabPanel value={value} index={3} dir={theme.direction}>
-          Item four
+          
+          <div className="statscreatecontainer">
+            <div>
+              <h1>Customize Your Stats</h1>
+              <p>Adjust your character s attributes to define their strengths and weaknesses.</p>
+            </div>
+
+
+            <StatsSlider 
+              onStatsChange={(stat, value) => 
+                setCharacterStats(prev => ({ ...prev, [stat]: value }))
+              }/>
+
+
+            <button onClick={handleNext}>Next</button>
+          </div>
+
+
+
         </TabPanel>
         <TabPanel value={value} index={4} dir={theme.direction}>
-          Item four
+          Item five
         </TabPanel>
 
 
