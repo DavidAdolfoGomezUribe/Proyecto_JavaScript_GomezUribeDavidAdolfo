@@ -32,7 +32,7 @@ export default function StatsSlider({ onStatsChange }: Props) {
     };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "97.5%" }}>
       {Object.entries(stats).map(([statKey, value]) => (
         <div key={statKey}>
           <h1>{statKey.charAt(0).toUpperCase() + statKey.slice(1)}: {value}</h1>

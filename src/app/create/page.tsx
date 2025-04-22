@@ -222,6 +222,14 @@ const handleNext = () => {
                   />
               </div>
 
+              <div>
+                <h1>weapon</h1>
+                <SingleSelectWeapon  
+                  onWeaponChange={setSelectedWeapon}
+                  selectedWeapon={selectedWeapon}
+                  />
+              </div>
+
             <button onClick={handleNext}>Next</button>
           </div>
 
