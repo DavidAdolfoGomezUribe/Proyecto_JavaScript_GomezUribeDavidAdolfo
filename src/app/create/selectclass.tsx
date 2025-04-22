@@ -1,6 +1,8 @@
 "use client"
 import React from "react";
 import { useState, useEffect } from "react";
+import { Sword } from 'lucide-react';
+
 
 interface SingleSelecClassProps {
     onSelectClassChange:(selectedClass: string) => void;
@@ -49,8 +51,14 @@ export function SelectClass({onSelectClassChange,selectedClass=""}:SingleSelecCl
             key={classItem.url}
             className={`class-option ${selectedClassLocal === classItem.name ? 'selected' : ''}`}
             onClick={() => handleSelectClass(classItem.name)}
-        >
-            <h2>{classItem.name}</h2>
+        >   
+            
+            <Sword style={{width:"5vw",height:"5vw"}}/>
+            <div>
+                <h2>{classItem.name}</h2>
+                <p>Character class</p>
+            </div>
+
         </div>
     ))}
     </div>

@@ -160,10 +160,11 @@ const handleNext = () => {
                 <p>Select a class for your character. Your class determines your abilities and playstyle.</p>
               </div>
                 
-              <div>
-                <SelectClass
-                  onSelectClassChange={setSelectedClass}/>
-              </div>
+              
+              <SelectClass
+              onSelectClassChange={setSelectedClass}
+              selectedClass={selectedClass}
+              />
 
               <button onClick={handleNext}>Next</button>
           </div>
