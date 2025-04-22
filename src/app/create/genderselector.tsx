@@ -14,7 +14,7 @@ const names = [
   "Male", "Female", "Apache Helicopter"
 ];
 
-export default function SingleSelect({ onGenderChange, selectedGender = '' }: SingleSelectProps) {
+export default function SingleSelectGender({ onGenderChange, selectedGender = '' }: SingleSelectProps) {
   
   const handleChange = (event: SelectChangeEvent<string>) => {
     const value = event.target.value;

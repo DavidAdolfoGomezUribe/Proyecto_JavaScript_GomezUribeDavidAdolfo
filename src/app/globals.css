@@ -590,7 +590,7 @@ html{
   }
 }
 
-/* estilos de las targetas de raza */
+/* estilos de las tarjetas de raza */
 .race-card {
   border: 2px solid transparent;
   padding: 1rem;
@@ -620,7 +620,7 @@ html{
 
 /*menu interno del genderselectorcontainer */
 .MuiList-root{
-  color: whitesmoke;
+  color: whitesmoke !important;
   background: #252525 !important;
   font-family: "texto.ttf", sans-serif !important;
 }
@@ -632,7 +632,7 @@ html{
   }
 }
 
-
+/* seleccion de clase*/ 
 .classcreatecontainer{
   display: flex;
   flex-direction: column;
@@ -711,9 +711,12 @@ html{
   }
 }
 
-
+/* estilos para las tarjetas de seleccion de clase  */ 
 .class-selector-container {
   cursor: pointer;
+  transition: all 0.25s ease;
+}
+.class-option{
   transition: all 0.25s ease;
 }
 .class-option.selected {
@@ -722,4 +725,73 @@ html{
 }
 .class-option:hover {
   box-shadow: 0px 0px 10px 7px rgba(0,255,60,1);
+}
+
+.equipementcreatecontainer{
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  border: 0.25vw solid whitesmoke;
+  border-radius: 1vw;
+  >div:nth-child(1){
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    
+    >h1{
+      font-size: 2vw;
+      font-family: "titulos.ttf";
+    }
+    >p{
+      font-family: "texto.ttf";
+      font-size: 2vw;
+      }
+  }
+
+  >div:nth-child(2){
+    width: 100%;
+    padding: 1vw 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    >h1{
+      font-size: 2vw;
+      font-family: "titulos.ttf";
+      padding: 0 1vw;
+    }
+  }
+  
+  >div:nth-child(3){
+    width: 100%;
+    padding: 1vw 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    >h1{
+      font-size: 2vw;
+      font-family: "titulos.ttf";
+      padding: 0 1vw;
+    }
+  }
+
+  >button:nth-child(4){
+    width: 100%;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    height: 4vw;
+    font-family: "titulos.ttf";
+    font-size: 1.8vw;
+    border-top: 0.25vw solid whitesmoke;
+    background-color: #111111;
+    &:hover{
+      cursor: pointer;
+      font-size: 2.1vw;
+      background-color: #252525;
+    }
+}
+
+
+
+
 }

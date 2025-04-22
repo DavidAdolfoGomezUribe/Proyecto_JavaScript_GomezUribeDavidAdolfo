@@ -10,10 +10,13 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import SingleSelect from "./genderselector";
+import SingleSelectGender from "./genderselector";
 import { RaceList } from "./racelist";
 import { useState } from "react";
 import { SelectClass } from "./selectclass";
+import SingleSelectArmor from "./armor";
+import SingleSelectWeapon from "./weapon";
+
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -61,11 +64,11 @@ function FullWidthTabs() {
   };
 
 const [characterName, setCharacterName] = useState<string>('');
-const [selectedGender, setSelectedGender] = React.useState<string>('');
+const [selectedGender, setSelectedGender] = useState<string>('');
 const [selectedRace, setSelectedRace] = useState<string>('');
 const [selectedClass, setSelectedClass] = useState<string>('');
-
-
+const [selectedArmor, setSelectedArmor] = useState<string>('');
+const [selectedWeapon,setSelectedWeapon] =useState<string>('');
 // funcion pa guadar en el localStorage
 const handleNext = () => {
 
@@ -73,7 +76,9 @@ const handleNext = () => {
     name: characterName,
     gender: selectedGender,
     race: selectedRace,
-    class: selectedClass
+    class: selectedClass,
+    armor: selectedArmor,
+    weapon:selectedWeapon
   }));
 
   if (value < 4) { // 4 es el índice máximo (por las 5 pestañas)
@@ -130,7 +135,7 @@ const handleNext = () => {
             <div>
               <h2>Gender</h2>
 
-              <SingleSelect  
+              <SingleSelectGender  
                 onGenderChange={setSelectedGender} 
                 selectedGender={selectedGender} />
             </div>
@@ -156,6 +161,7 @@ const handleNext = () => {
         <TabPanel value={value} index={1} dir={theme.direction}>
           <div className="classcreatecontainer">
               <div>
+                
                 <h1>Choose Your Class</h1>
                 <p>Select a class for your character. Your class determines your abilities and playstyle.</p>
               </div>
@@ -170,9 +176,40 @@ const handleNext = () => {
           </div>
 
         </TabPanel>
+        
         <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
+          <div className="equipementcreatecontainer">
+              
+              <div>
+                <h1>Choose Your Class</h1>
+                <p>Select a class for your character. Your class determines your abilities and playstyle.</p>
+              </div>
+                
+
+              <div>
+                <h1>Armor</h1>
+                <SingleSelectArmor  
+                  onArmorChange={setSelectedArmor}
+                  selectedArmor={selectedArmor}
+                  />
+              </div>
+                
+              <div>
+                <h1>weapon</h1>
+                <SingleSelectWeapon  
+                  onWeaponChange={setSelectedWeapon}
+                  selectedWeapon={selectedWeapon}
+                  />
+          
+
+
+              </div>
+
+            <button onClick={handleNext}>Next</button>
+          </div>
+
         </TabPanel>
+        
         <TabPanel value={value} index={3} dir={theme.direction}>
           Item four
         </TabPanel>
