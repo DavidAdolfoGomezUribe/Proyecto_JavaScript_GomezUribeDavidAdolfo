@@ -17,6 +17,9 @@ import { SelectClass } from "./selectclass";
 import SingleSelectArmor from "./armor";
 import SingleSelectWeapon from "./weapon";
 import StatsSlider from "./stats";
+import SingleSelectFeatures from "./features";
+import SingleSelectSpells from "./spells";
+
 
 
 interface TabPanelProps {
@@ -70,6 +73,8 @@ const [selectedRace, setSelectedRace] = useState<string>('');
 const [selectedClass, setSelectedClass] = useState<string>('');
 const [selectedArmor, setSelectedArmor] = useState<string>('');
 const [selectedWeapon,setSelectedWeapon] =useState<string>('');
+const [selectedFeature,setSelectedFeature] =useState<string>('');
+const [selectedSpell,setSelectedSpell] =useState<string>('');
 
 interface Stats {
   strength: number;
@@ -97,6 +102,8 @@ const handleNext = () => {
     class: selectedClass,
     armor: selectedArmor,
     weapon:selectedWeapon,
+    feature:selectedFeature,
+    spell:selectedSpell,
     ...characterStats,
 
   }));
@@ -215,7 +222,7 @@ const handleNext = () => {
               </div>
                 
               <div>
-                <h1>weapon</h1>
+                <h1>Weapon</h1>
                 <SingleSelectWeapon  
                   onWeaponChange={setSelectedWeapon}
                   selectedWeapon={selectedWeapon}
@@ -223,14 +230,25 @@ const handleNext = () => {
               </div>
 
               <div>
-                <h1>weapon</h1>
-                <SingleSelectWeapon  
-                  onWeaponChange={setSelectedWeapon}
-                  selectedWeapon={selectedWeapon}
+                <h1>Features</h1>
+                <SingleSelectFeatures  
+                  onFeatureChange={setSelectedFeature}
+                  selectedFeature={selectedFeature}
                   />
               </div>
 
+              <div>
+                <h1>Spells</h1>
+                <SingleSelectSpells  
+                  onSpellChange={setSelectedSpell}
+                  selectedSpell={selectedSpell}
+                  />
+              </div>
+
+
+
             <button onClick={handleNext}>Next</button>
+
           </div>
 
         </TabPanel>

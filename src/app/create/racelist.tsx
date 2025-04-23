@@ -18,7 +18,7 @@ const ListaImagenes: string[] = [
 
 interface SingleRaceProps {
   onRaceChange: (race: string) => void;
-  selectedRace?: string; // Opcional si quieres controlarlo desde el padre
+  selectedRace?: string; // pa controlar deded page tsx 
 }
 
 

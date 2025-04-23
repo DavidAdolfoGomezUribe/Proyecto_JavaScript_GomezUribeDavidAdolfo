@@ -6,11 +6,11 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 interface SingleSelectProps {
-  onFeatureChange: (feature: string) => void;
-  selectedFeature?: string;
+  onSpellChange: (feature: string) => void;
+  selectedSpell?: string;
 }
 
-export default function SingleSelectFeatures({ onFeatureChange, selectedFeature = '' }: SingleSelectProps) {
+export default function SingleSelectSpells({ onSpellChange, selectedSpell = '' }: SingleSelectProps) {
   const [availableFeatures, setAvailableFeatures] = useState<string[]>([]);
 
   useEffect(() => {
@@ -22,12 +22,17 @@ export default function SingleSelectFeatures({ onFeatureChange, selectedFeature 
         
         if (!characterClass) return;
 
-        const response = await fetch(`https://www.dnd5eapi.co/api/classes/${characterClass}/features`);
+        const response = await fetch(`https://www.dnd5eapi.co/api/classes/${characterClass}/spells`);
         const featuresData = await response.json();
         
-        const features = featuresData.results.map((element: { name: string }) => element.name);
-        
-        setAvailableFeatures(features);
+        if (featuresData.results.length === 0) {
+            setAvailableFeatures(["No spells"]); 
+          } else {
+            const features = featuresData.results.map((element: { name: string }) => element.name);
+            setAvailableFeatures(features); 
+        }
+
+
       } catch (error) {
         console.error(error);
         setAvailableFeatures([]);
@@ -39,7 +44,7 @@ export default function SingleSelectFeatures({ onFeatureChange, selectedFeature 
 
   const handleChange = (event: SelectChangeEvent<string>) => {
     const value = event.target.value;
-    onFeatureChange(value);
+    onSpellChange(value);
   };
 
   return (
@@ -48,7 +53,7 @@ export default function SingleSelectFeatures({ onFeatureChange, selectedFeature 
         <Select
           style={{ color: "white" }}
           displayEmpty
-          value={selectedFeature}
+          value={selectedSpell}
           onChange={handleChange}
           input={<OutlinedInput />}
           renderValue={(selected) => {
