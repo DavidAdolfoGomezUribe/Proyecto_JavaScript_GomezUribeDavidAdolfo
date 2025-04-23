@@ -19,6 +19,7 @@ import SingleSelectWeapon from "./weapon";
 import StatsSlider from "./stats";
 import SingleSelectFeatures from "./features";
 import SingleSelectSpells from "./spells";
+import Review from "./review";
 
 
 
@@ -245,8 +246,6 @@ const handleNext = () => {
                   />
               </div>
 
-
-
             <button onClick={handleNext}>Next</button>
 
           </div>
@@ -276,7 +275,10 @@ const handleNext = () => {
 
         </TabPanel>
         <TabPanel value={value} index={4} dir={theme.direction}>
-          Item five
+          <div>
+            <Review />
+
+          </div>
         </TabPanel>
 
 
@@ -307,7 +309,7 @@ function Page() {
             <FullWidthTabs />
           </section>
 
-
+          
         </main>
       </div>
     </React.Fragment>
