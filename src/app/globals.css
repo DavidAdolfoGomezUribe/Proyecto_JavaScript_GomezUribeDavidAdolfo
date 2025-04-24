@@ -901,7 +901,7 @@ html{
     border-radius: 1vw;
     padding: 1vw;
     width: 13vw;
-    height: 13vw;
+    height: auto;
   }
 
   >div:nth-child(3){
@@ -996,8 +996,6 @@ html{
       }
 
     }
-
-
   }
  
   button{
