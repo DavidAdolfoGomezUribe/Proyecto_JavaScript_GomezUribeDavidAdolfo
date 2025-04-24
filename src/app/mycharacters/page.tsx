@@ -60,7 +60,7 @@ function Page() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm('¿Estás seguro de que quieres eliminar este personaje?')) {
+    if (!confirm('Are you sure you want to delete this character?')) {
       return;
     }
 
@@ -71,9 +71,9 @@ function Page() {
 
       if (response.ok) {
         setCharacters(prev => prev.filter(character => character.id !== id));
-        alert('Personaje eliminado correctamente');
+        alert('Successfully removed character');
       } else {
-        throw new Error('Error al eliminar el personaje');
+        throw new Error('Error deleting character');
       }
     } catch (err) {
       console.error('Error:', err);
@@ -91,62 +91,70 @@ function Page() {
 
   return (
     <React.Fragment>
-      <h1>Lista de Personajes</h1>
-      {characters.length === 0 ? (
-        <p>No hay personajes guardados</p>
-      ) : (
-        <div className="character-list">
-          {characters.map((character) => (
-            <div key={character.id} className="character-card">
-              <div className="character-basic-info">
-                <h2>Name: {character.name}</h2>
-                <p><strong>Raza:</strong> {character.race}</p>
-                <p><strong>Clase:</strong> {character.class}</p>
-              </div>
-              
-              <div className="character-actions">
-                <button 
-                  onClick={() => toggleDetails(character.id)}
-                  className="details-button"
-                >
-                  {expandedCards[character.id] ? 'Ocultar' : 'Detalles'}
-                </button>
-                <button 
-                  onClick={() => handleDelete(character.id)}
-                  className="delete-button"
-                >
-                  Delete
-                </button>
-              </div>
-
-              {expandedCards[character.id] && (
-                <div className="character-details">
+      <main className="mycharactersmaincontainer"> 
+        <h1>Character List</h1>
+        {characters.length === 0 ? (
+          <p>There are no saved characters</p>
+        ) : (
+          <div className="character-list">
+            {characters.map((character) => (
+              <div key={character.id} className="character-card">
+                <div className="character-basic-info">
+                  <h2><strong>Name:</strong> {character.name}</h2>
+                  <p><strong>Race:</strong> {character.race}</p>
+                  <p><strong>Clase:</strong> {character.class}</p>
                   <p><strong>Gender:</strong> {character.gender}</p>
-                  
-                  <h3>Equipo</h3>
-                  <p><strong>Armor:</strong> {character.armor}</p>
-                  <p><strong>Weapon:</strong> {character.weapon}</p>
-                  <p><strong>Feature:</strong> {character.feature}</p>
-                  <p><strong>Spell:</strong> {character.spell}</p>
-                  
-                  <h3>Atributos</h3>
-                  <p><strong>Fuerza:</strong> {character.strength}</p>
-                  <p><strong>Destreza:</strong> {character.dexterity}</p>
-                  <p><strong>Constitución:</strong> {character.constitution}</p>
-                  <p><strong>Inteligencia:</strong> {character.intelligence}</p>
-                  <p><strong>Sabiduría:</strong> {character.wisdom}</p>
-                  <p><strong>Carisma:</strong> {character.charisma}</p>
                 </div>
-              )}
-              <hr />
-            </div>
-          ))}
-        </div>
-      )} 
+                
+                <div className="character-actions">
+                  <button 
+                    onClick={() => toggleDetails(character.id)}
+                    className="details-button"
+                  >
+                    {expandedCards[character.id] ? 'Hide' : 'View'}
+                  </button>
+                  
+                  <button 
+                    onClick={() => handleDelete(character.id)}
+                    className="delete-button"
+                  >
+                    Delete
+                  </button>
+                </div>
 
-      <Link href={"../"}>Regresar al menu anterior</Link>
+                {expandedCards[character.id] && (
+                  <div className="character-details">
+                    <div>
+                      
 
-      
+                      <h2>Equipment</h2>
+                      <p><strong>Armor:</strong> {character.armor}</p>
+                      <p><strong>Weapon:</strong> {character.weapon}</p>
+                      <p><strong>Feature:</strong> {character.feature}</p>
+                      <p><strong>Spell:</strong> {character.spell}</p>
+                    </div>
+                    <div>
+
+                      <h2>Stats</h2>
+                      <p><strong>Strength:</strong> {character.strength}</p>
+                      <p><strong>Dexterity:</strong> {character.dexterity}</p>
+                      <p><strong>Constitution:</strong> {character.constitution}</p>
+                      <p><strong>Intelligence:</strong> {character.intelligence}</p>
+                      <p><strong>Wisdom:</strong> {character.wisdom}</p>
+                      <p><strong>Charisma:</strong> {character.charisma}</p>
+                    </div>
+                  </div>
+                )}
+                <hr />
+              </div>
+            ))}
+          </div>
+          
+        )} 
+
+        <Link  href={"../"}>Back to main menu</Link>
+
+        </main>
     </React.Fragment>
   );
 }

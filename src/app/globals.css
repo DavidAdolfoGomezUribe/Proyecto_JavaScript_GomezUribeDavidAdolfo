@@ -1037,41 +1037,94 @@ html{
     
 }
 
+
 /* Estilos de la pagina mycharacters*/
+
+.mycharactersmaincontainer{
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  
+
+  >h1{
+    width: 100%;
+    height: 9vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111111;
+    font-size: 2vw;
+    font-family: "titulos.ttf";
+  }
+  a{
+    border-radius: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111111;
+    cursor: pointer;
+    height: 4vw;
+    padding-left: 1vw;
+    font-size: 1.8vw;
+    font-family: "texto.ttf";
+    border: whitesmoke 0.25vw solid;
+    &:hover{
+      font-size: 2.2vw;
+    }
+  }
+
+}
 .character-list {
-  display: grid;
-  gap: 20px;
-  margin-top: 20px;
+  padding: 1vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1vw;
+  justify-content: space-between;
+  
   color: black;
 }
 
 .character-card {
+  
+  width: 49%;
+  background-color: #111111;
   border: 1px solid #ddd;
   padding: 15px;
   border-radius: 8px;
-  background-color: #252525;
-  color: black;
+  color: whitesmoke;
+  h2{
+    margin-bottom: 1vw;
+    font-size: 2vw;
+    font-family: "titulos.ttf";
+  }
+  p{
+    font-size: 1.8vw;
+    font-family: "texto.ttf";
+  }
+  
 }
 
 .character-basic-info {
-  margin-bottom: 10px;
-  color: black;
+  padding: 1vw;
+  
 }
 
 .character-actions {
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
   margin-bottom: 10px;
-  color: black;
+  
 }
 
 .details-button {
   background-color: #4CAF50;
-  color: black;
+  font-size: 1.8vw;
+  font-family: "texto.ttf";
   border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
+  border: 0.25vw solid whitesmoke;
+  border-radius: 1vw;
   cursor: pointer;
+  width: 48%;
 }
 
 .details-button:hover {
@@ -1079,12 +1132,16 @@ html{
 }
 
 .delete-button {
+  
+  border: 0.25vw solid whitesmoke;
+  width: 48%;
   background-color: #f44336;
-  color: black;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
+  
+  height: 5vw;
+  border-radius: 1vw;
   cursor: pointer;
+  font-size: 1.8vw;
+  font-family: "texto.ttf";
 }
 
 .delete-button:hover {
@@ -1092,8 +1149,13 @@ html{
 }
 
 .character-details {
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #eee;
-  color: black;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  padding: 1vw;
+  color: whitesmoke;
+  gap: 4vw;
+  div{
+    width: 47%;
+  }
 }
