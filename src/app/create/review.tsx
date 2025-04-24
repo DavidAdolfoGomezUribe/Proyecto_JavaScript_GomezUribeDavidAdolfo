@@ -15,6 +15,15 @@ export default function Review() {
 
   const character = getLocalStorageInfo();
 
+  if (!character) {
+    return (
+      <div className="error-container">
+        <h1>No character data found</h1>
+        <p>Please create a character first</p>
+      </div>
+    );
+  }
+
   const ListaImagenes: string[] = [ 
     "Dragonborn.png", "Dwarf.png", "Elf.png", "Gnome.png", 
     "Half-Elf.png","Half-Orc.png", "Halfling.png", "Human.png", "Tiefling.png"
@@ -25,7 +34,7 @@ const getRaceImage = (raceName: string) => {
 
   return ListaImagenes.includes(formattedName) 
     ? `/img/${formattedName}`
-    : '/img/Dragonborn.png';
+    : '/img/apachehelicopter.png';
 };
 
   const handleSave = async () => {
@@ -80,7 +89,10 @@ const getRaceImage = (raceName: string) => {
       </div>
     
       
-    <Image alt="hero" src={getRaceImage(character.race)} width={500} height={500} />
+    <Image alt="hero"
+      src={character?.race ? getRaceImage(character.race) : '/img/apachehelicopter.png'}
+      width={500} 
+      height={500} />
       
     <div>
         <h1>Basic Information</h1>

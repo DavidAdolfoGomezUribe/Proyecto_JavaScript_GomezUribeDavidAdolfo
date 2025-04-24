@@ -271,7 +271,7 @@ html{
         
         
         >div{
-
+          border: 0.25vw whitesmoke solid;
           border-radius: 1vw;
           display: flex;
           flex-direction: column;
@@ -293,13 +293,30 @@ html{
 
         }
 
+        
         >div:nth-child(1){
+          background: url("/img/backa.gif");
+          background-size: cover;
+          background-position: center;
+          opacity: 0.9;
+        }
+        
+        >div:nth-child(2){
           background: url("/img/choseyourrace.png");
           background-size: cover;
           background-position: center;
+          opacity: 0.9;
           
         }
+        >div:nth-child(3){
+          opacity: 0.9;
+          background: url("/img/backb.gif");
+          background-size: cover;
+          background-position: center;
+        }
         
+
+
       }
       @media (max-width: 1024px) { 
         >div:nth-child(2){
@@ -392,10 +409,13 @@ html{
 
 
 /* Clases de Create*/
+
 .createbodycontainer{
   position: relative;
   margin: 0 auto;
   width: 80vw;
+
+  
 
 
 }
@@ -405,6 +425,7 @@ html{
   display: flex;
   flex-direction: column;
   gap: 1vw;
+  
   
   height: inherit;
   section:nth-child(1){
@@ -1016,4 +1037,63 @@ html{
     
 }
 
+/* Estilos de la pagina mycharacters*/
+.character-list {
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+  color: black;
+}
 
+.character-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #252525;
+  color: black;
+}
+
+.character-basic-info {
+  margin-bottom: 10px;
+  color: black;
+}
+
+.character-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.details-button {
+  background-color: #4CAF50;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.details-button:hover {
+  background-color: #45a049;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+.character-details {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  color: black;
+}
