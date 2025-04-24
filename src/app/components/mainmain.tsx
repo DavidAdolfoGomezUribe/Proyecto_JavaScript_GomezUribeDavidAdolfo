@@ -1,5 +1,6 @@
 "use client"
 import { Swords,ShieldPlus ,Castle  } from 'lucide-react';
+import Link from 'next/link';
 
 // import Image from "next/image"
 
@@ -13,9 +14,10 @@ export function MainMain (){
                     <p>Create and customize your own Dungeons & Dragons character with our advanced character generator. Choose your race, class, equipment, and more.</p>
                     
                     <div>
-                        <button>Start Creating</button>
+
+                        <Link  href={"/create"}>Start Creating</Link>
+                        <Link href={"/mycharacters"}>View My Characters</Link>
                         
-                        <button>View My Characters</button>
                     </div>
                 </article>
             </section>

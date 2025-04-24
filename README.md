@@ -1,6 +1,63 @@
+# Requerimientos
+
+GameCampus está desarrollando un ambicioso videojuego de fantasía épica. Para ello, han solicitado la creación de una plataforma avanzada de generación de personajes que permita a los usuarios filtrar a sus héroes basado en las opciones que este escoja (Dicho dataset estará basado en el mundo de Dungeons & Dragons).
+
+El objetivo de este proyecto es construir una aplicación web interactiva y visualmente impresionante que permita a los usuarios escoger la raza, clase, género, equipo, armas, habilidades especiales y estadísticas personalizadas.
+
+## Especificaciones del Proyecto
+
+### Requisitos Funcionales
+
+Página de Inicio (Landing Page)
+Explicación de la plataforma con una introducción visual.
+Filtración de Personajes
+Los usuarios podrán filtrar los personaje desde cero eligiendo:
+Nombre del personaje (personalizado).
+Raza (obtenida de la API de razas de fantasía).
+Clase (obtenida de la API de clases de fantasía).
+Género (Masculino, Femenino, Otros).
+Armadura y Armas (obtenidas de una API o creadas por el usuario).
+Estadísticas Personalizadas (fuerza, destreza, inteligencia, etc.).
+Habilidades Especiales (poderes, magias y habilidades obtenidas de la API).
+Accesorios (cascos, anillos, medallas, etc.).
+El personaje que al usuario le quede gustando tendrá la función de guardar para ser revisado luego en otra parte de la página.
+Vista de Lista de Personajes
+Se muestra una lista de todos los personajes filtrados por el usuario.
+Cada personaje tendrá una opción de "Ver detalles".
+
+
+### Requisitos No Funcionales
+Compatibilidad:
+La aplicación debe ser funcional en navegadores modernos (Chrome, Firefox, Edge).
+Diseño Responsivo:
+La aplicación debe ser totalmente funcional en dispositivos móviles, tablets y desktop.
+
+API Pública Sugeridas
+D&D 5e API - Información completa de razas, clases y habilidades.
+Opción Avanzada: Usar MockAPI o JSONPlaceholder para crear una base de datos ficticia de armas, habilidades y razas.
+
+Estructura de Entrega
+Carpeta del Proyecto:
+/src: Código fuente principal.
+/assets: Imágenes, íconos y recursos gráficos.
+/styles: Hojas de estilo CSS o SASS.
+Repositorio GitHub:
+Proyecto entregado en un repositorio público.
+Commit regulares para evidenciar el progreso.
+README.md:
+Descripción del proyecto y cómo ejecutarlo.
+Instrucciones para la configuración de la API (Si aplica).
+
+
+
+
+# Next Readme
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
+
+
 
 First, run the development server:
 
