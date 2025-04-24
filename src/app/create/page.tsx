@@ -275,7 +275,7 @@ const handleNext = () => {
 
         </TabPanel>
         <TabPanel value={value} index={4} dir={theme.direction}>
-          <div>
+          <div className="reviewcreatecontainer">
             <Review />
 
           </div>

@@ -77,31 +77,77 @@ export default function Review() {
         <h1>Review Your Character</h1>
         <p>Review your character details before saving.</p>
       </div>
+    
       
-      <Image alt="hero" src={getRaceImage(character.class)} width={50} height={50} />
-
-      <div>
+    <Image alt="hero" src={getRaceImage(character.class)} width={500} height={500} />
+      
+    <div>
         <h1>Basic Information</h1>
+        <div>
+            <div> 
+                <p><strong>Name:</strong></p>
+                <p><strong>Gender:</strong> </p>
+                <p><strong>Class:</strong> </p>
+                <p><strong>Race:</strong> </p>
+            </div>
+            <div>
+                <p>{character.name}</p>
+                <p>{character.gender}</p>
+                <p>{character.class}</p>
+                <p>{character.race}</p>
+            </div>
 
-        <p>Name: {character.name}</p>
-        <p>Gender: {character.gender}</p>
-        <p>Clase: {character.class}</p>
-        <p>Race: {character.race}</p>
+        </div>
+    </div>
+      
+    <div>
+      <h1>Equiment</h1>
+      <div>
+        <div>
+            <p><strong>Armor:</strong></p>
+            <p><strong>Weapon:</strong></p>
+            <p><strong>Feature:</strong></p>
+            <p><strong>Spell:</strong></p>
+        </div>
+        <div>
+            <p>{character.armor}</p>
+            <p>{character.weapon}</p>
+            <p>{character.feature}</p>
+            <p>{character.spell}</p>
+        </div>
         
-        <h1>Equiment</h1>
-        <p>Armor: {character.armor}</p>
-        <p>Weapon: {character.weapon}</p>
-        <p>Feature: {character.feature}</p>
-        <p>Spell: {character.spell}</p>
-        
-        <h1>Character Stats</h1>
-        <p>Strength: {character.strength}</p>
-        <p>Dexterity: {character.dexterity}</p>
-        <p>Constitution: {character.constitution}</p>
-        <p>Intelligence: {character.intelligence}</p>
-        <p>Wisdom: {character.wisdom}</p>
-        <p>Charisma: {character.charisma}</p>
       </div>
+    </div>    
+    
+    <div>
+      <h1>Character Stats</h1>
+      <div>
+        <div> 
+            <h1>Str</h1>
+            <p>{character.strength}</p>
+        </div>
+        <div>
+            <h1>Dex</h1>
+            <p>{character.dexterity}</p>
+        </div>
+        <div>
+          <h1>Cons</h1>
+          <p>{character.constitution}</p>
+        </div>
+        <div>
+          <h1>Int</h1>
+          <p>{character.intelligence}</p>
+        </div>
+        <div>
+          <h1>Wis</h1>
+          <p>{character.wisdom}</p>
+        </div>
+        <div>
+          <h1>Cha</h1>
+          <p>{character.charisma}</p>
+        </div>
+      </div>  
+    </div>
       
       <button onClick={handleSave}>Save</button>
 

@@ -868,5 +868,154 @@ html{
     }
   }
 }
+/* estilos de la pestaña review*/
+.reviewcreatecontainer{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vw;
+  border: 0.25vw solid whitesmoke;
+  border-radius: 1vw;
+
+  >div:nth-child(1){
+    width: 100%;
+    padding: 1vw 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    >h1{
+      font-size: 2vw;
+      font-family: "titulos.ttf";
+      padding: 0 1vw;
+    }
+    >p{
+      font-size: 1.8vw;
+      font-family: "texto.ttf";
+      padding: 0 1vw;
+    }
+  }
+  img:nth-child(2){
+    background-color: #252525;
+    border: solid 0.25vw whitesmoke;
+    border-radius: 1vw;
+    padding: 1vw;
+    width: 13vw;
+    height: 13vw;
+  }
+
+  >div:nth-child(3){
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    padding: 1vw;
+    width: 100%;
+    
+    >h1{
+      font-size: 2vw;
+      font-family: "titulos.ttf";
+     }
+     div{
+      display: flex;
+      flex-direction: row;
+      div{
+        
+        width: 49%;
+        display: flex;
+        flex-direction: column;
+        p{
+          font-size: 1.8vw;
+          font-family: "texto.ttf";
+        }
+      }
+     }
+   }
+
+  >div:nth-child(4){
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    padding: 1vw;
+    width: 100%;
+    
+    >h1{
+      font-size: 2vw;
+      font-family: "titulos.ttf";
+     }
+     div{
+      display: flex;
+      flex-direction: row;
+      div{
+        
+        width: 49%;
+        display: flex;
+        flex-direction: column;
+        p{
+          font-size: 1.8vw;
+          font-family: "texto.ttf";
+        }
+      }
+     }
+
+  }
+  
+  >div:nth-child(5){
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    padding: 1vw;
+    width: 100%;
+    
+    >h1{
+      font-size: 2vw;
+      font-family: "titulos.ttf";
+    }
+    >div{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1vw;
+      div{
+        border-radius: 1vw;
+        border: 0.25vw whitesmoke solid;
+        background-color: #252525;
+        height: 7vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 49%;
+        >h1{
+          font-size: 1.8vw;
+          font-family: "titulos.ttf";
+        }
+        >p{
+          font-size: 1.8vw;
+          font-family: "texto.ttf";
+        }
+      }
+
+    }
+
+
+  }
+ 
+  button{
+    width: 100%;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    height: 4vw;
+    font-family: "titulos.ttf";
+    font-size: 1.8vw;
+    border-top: 0.25vw solid whitesmoke;
+    background-color: #111111;
+    &:hover{
+      cursor: pointer;
+      font-size: 2.1vw;
+      background-color: #252525;
+    }
+  }
+    
+}
 
 
