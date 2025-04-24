@@ -8,7 +8,7 @@ export default function Review() {
 
   const router = useRouter(); 
 
-  function getLocalStorageInfo() {
+  function getLocalStorageInfo(){
     const data = localStorage.getItem("characterData");
     return data ? JSON.parse(data) : null;
   }
@@ -20,12 +20,13 @@ export default function Review() {
     "Half-Elf.png","Half-Orc.png", "Halfling.png", "Human.png", "Tiefling.png"
   ];
   
-  const getRaceImage = (raceName: string) => {
-    const formattedName = `${raceName.replace(/\s+/g, '-')}.png`;
-    return ListaImagenes.includes(formattedName) 
-      ? `/img/${formattedName}`
-      : '/img/Dragonborn.png';
-  };
+const getRaceImage = (raceName: string) => {
+  const formattedName = `${raceName}.png`;  
+
+  return ListaImagenes.includes(formattedName) 
+    ? `/img/${formattedName}`
+    : '/img/Dragonborn.png';
+};
 
   const handleSave = async () => {
     
@@ -79,7 +80,7 @@ export default function Review() {
       </div>
     
       
-    <Image alt="hero" src={getRaceImage(character.class)} width={500} height={500} />
+    <Image alt="hero" src={getRaceImage(character.race)} width={500} height={500} />
       
     <div>
         <h1>Basic Information</h1>
