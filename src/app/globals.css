@@ -1088,8 +1088,8 @@ html{
   
   width: 49%;
   background-color: #111111;
-  border: 1px solid #ddd;
-  padding: 15px;
+  border: 0.25vw solid #ddd;
+  padding: 1vw;
   border-radius: 8px;
   color: whitesmoke;
   h2{
@@ -1106,6 +1106,14 @@ html{
 
 .character-basic-info {
   padding: 1vw;
+  img{
+    padding: 1vw;
+    border-radius: 0.25vw;
+    border: whitesmoke solid 0.25vw;
+    width: 13vw;
+    height: auto;
+    margin-left: 36%;
+  }
   
 }
 

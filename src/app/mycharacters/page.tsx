@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Character {
   id: string;
@@ -21,11 +22,27 @@ interface Character {
   charisma: string;
 }
 
+
+
 function Page() {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
+
+  const ListaImagenes: string[] = [ 
+    "Dragonborn.png", "Dwarf.png", "Elf.png", "Gnome.png", 
+    "Half-Elf.png","Half-Orc.png", "Halfling.png", "Human.png", "Tiefling.png"
+  ];
+  
+  const getRaceImage = (raceName: string) => {
+    const formattedName = `${raceName}.png`;  
+
+    return ListaImagenes.includes(formattedName) 
+      ? `/img/${formattedName}`
+      : '/img/apachehelicopter.png';
+  };
+
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -100,7 +117,11 @@ function Page() {
             {characters.map((character) => (
               <div key={character.id} className="character-card">
                 <div className="character-basic-info">
-                  <h2><strong>Name:</strong> {character.name}</h2>
+                  <h2>{character.name}</h2>
+                   <Image alt="hero"
+                        src={character?.race ? getRaceImage(character.race) : '/img/apachehelicopter.png'}
+                        width={500} 
+                        height={500} />
                   <p><strong>Race:</strong> {character.race}</p>
                   <p><strong>Clase:</strong> {character.class}</p>
                   <p><strong>Gender:</strong> {character.gender}</p>
